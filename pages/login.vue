@@ -4,11 +4,12 @@
     <h1>Sign in to access the secret page</h1>
     <div class="loginDetails">
       <label for="username">
-        <input id="username" type="text" value="test">
+        <input id="username" type="text" v-model="username" >
       </label>
       <label for="password">
-        <input id="password" type="password" value="test">
+        <input id="password" type="password" v-bind:value= "password">
       </label>
+      <p>You are logging in as {{ username }}</p>
       <button @click="postLogin">
         Login
       </button>
@@ -21,6 +22,12 @@
 const Cookie = process.client ? require('js-cookie') : undefined
 
 export default {
+  data() {
+    return {
+      username: 'StormTest',
+      password: '-!NmmQR2pbmJSQ7'
+    }
+  },
   middleware: 'notAuthenticated',
   methods: {
     postLogin () {
@@ -41,7 +48,7 @@ export default {
 .containerLogin{
     width: 300px;
     background: black;
-    height: 400px;
+    height: 420px;
     margin: 50px auto;
     border-radius: 10px;
     padding: 20px;
