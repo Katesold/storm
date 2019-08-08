@@ -1,7 +1,7 @@
 <template>
   <div class="app">
     <Header></Header>
-    <div v-if="$store.state.auth">
+    <div class="auth" v-if="$store.state.auth">
       <p>
         You are authenticated. You can see the
         <NuxtLink to="/secret">
@@ -66,6 +66,13 @@ body{
   transition: all 0.8s;
   border-radius: 3px;
 }
+.auth{
+  text-align: center;
+  padding-top: 50px;
+}
 
+.auth button{
+  margin-top: 20px;
+}
 
 </style>

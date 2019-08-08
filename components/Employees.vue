@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <h2>Employees </h2>
+    <div class="tableCont">
+        <h2>Employees</h2>      
         <table>
         <thead class="tableHeads">
           <tr>
@@ -17,7 +17,7 @@
               <td> {{employee.first_Name}} {{employee.last_Name}}  </td>
               <td> {{employee.email}} </td>
               <td> {{employee.createdDate}} </td>
-              <td v-bind:key="index" v-for="(department, index) in employee.employeeDepartments">  {{ department.employeeDepartment.description}} </td>
+              <td v-bind:key="index" v-for="(department, index) in employee.employeeDepartments"> <span v-bind:key="index" v-for="(dep, index) in department"> {{ dep.description }}   </span> </td>
           </tr>
           
       </table>
@@ -36,6 +36,9 @@ export default {
 </script>
 
 <style scoped>
+.tableCont{
+    padding-top: 20px;
+}
 h2{
     padding: 20px;
     font-size: 2em;
@@ -46,8 +49,11 @@ table{
 }
 td{
     padding: 10px;
+    border-bottom: 1px solid #FFF;
 }
-
+th{
+    padding-left: 10px;
+}
 
 table, tr {
   border: 1px solid #FFF;
